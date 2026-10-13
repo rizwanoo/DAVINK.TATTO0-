@@ -2,10 +2,12 @@ import React, { useRef, useState } from 'react';
 import { motion } from 'framer-motion';
 import { ArrowDown, MapPin, Instagram, Volume2, VolumeX } from 'lucide-react';
 import { ARTIST_INFO } from '../data/mockData';
+import { useLanguage } from '../context/LanguageContext';
 
 export const Hero: React.FC = () => {
   const [isMuted, setIsMuted] = useState(true);
   const videoRef = useRef<HTMLVideoElement>(null);
+  const { t } = useLanguage();
 
   const toggleSound = () => {
     if (videoRef.current) {
@@ -60,9 +62,9 @@ export const Hero: React.FC = () => {
             transition={{ duration: 0.8, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
             className="text-4xl sm:text-6xl md:text-8xl lg:text-9xl font-black tracking-tight uppercase leading-[0.94] sm:leading-[0.92] font-sans drop-shadow-[0_4px_30px_rgba(0,0,0,0.95)] text-slate-100 break-words"
           >
-            Your Story.<br />
+            {t.hero.title1}<br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-slate-100 to-red-600">
-              Permanently Inked.
+              {t.hero.title2}
             </span>
           </motion.h1>
 
@@ -72,7 +74,7 @@ export const Hero: React.FC = () => {
             transition={{ duration: 0.8, delay: 0.25, ease: [0.16, 1, 0.3, 1] }}
             className="text-sm sm:text-lg md:text-xl text-neutral-200 font-light max-w-2xl leading-relaxed drop-shadow-[0_2px_15px_rgba(0,0,0,0.9)] break-words"
           >
-            Custom tattoos. Timeless black and grey. Art that becomes part of you. Private contemporary studio experience by David serving Haines City & Davenport, Florida.
+            {t.hero.subtitle}
           </motion.p>
 
           <motion.div
@@ -87,7 +89,7 @@ export const Hero: React.FC = () => {
               whileTap={{ scale: 0.96 }}
               className="px-8 sm:px-9 py-3.5 sm:py-4 bg-red-600 hover:bg-red-500 text-white font-black text-xs tracking-[0.2em] uppercase rounded-full shadow-[0_0_35px_rgba(220,38,38,0.5)] transition-colors text-center justify-center flex items-center"
             >
-              Book Your Tattoo
+              {t.hero.bookBtn}
             </motion.a>
             <motion.a
               href="#portfolio"
@@ -95,7 +97,7 @@ export const Hero: React.FC = () => {
               whileTap={{ scale: 0.96 }}
               className="px-7 sm:px-8 py-3.5 sm:py-4 bg-black/70 hover:bg-neutral-900 text-slate-100 font-bold text-xs tracking-[0.2em] uppercase rounded-full border border-neutral-700 hover:border-red-600/60 transition-colors text-center justify-center flex items-center"
             >
-              Explore The Artwork
+              {t.hero.exploreBtn}
             </motion.a>
 
             {/* Audio Toggle */}
@@ -119,7 +121,7 @@ export const Hero: React.FC = () => {
           >
             <div className="flex items-center gap-2">
               <MapPin className="w-4 h-4 text-red-500 shrink-0" />
-              <span>Haines City & Davenport, Florida</span>
+              <span>{t.hero.location}</span>
             </div>
             <span className="w-1.5 h-1.5 rounded-full bg-red-600 hidden sm:inline-block" />
             <a
@@ -144,14 +146,14 @@ export const Hero: React.FC = () => {
           <div className="flex items-center gap-3 overflow-hidden max-w-full sm:max-w-2xl">
             <span className="w-2 h-2 rounded-full bg-red-600 shrink-0 animate-pulse" />
             <p className="text-xs sm:text-sm italic tracking-wider text-slate-200 font-light break-words">
-              “Un encendedor también puede ser un pequeño lienzo. El arte y la tinta trascienden el tiempo.” — David Pérez
+              {t.hero.quote}
             </p>
           </div>
           <a
             href="#about"
             className="flex items-center gap-2 hover:text-red-400 transition-colors tracking-[0.2em] uppercase text-[11px] font-bold group shrink-0"
           >
-            <span>Scroll to discover</span>
+            <span>{t.hero.scroll}</span>
             <ArrowDown className="w-3.5 h-3.5 text-red-500 group-hover:translate-y-1 transition-transform" />
           </a>
         </motion.div>

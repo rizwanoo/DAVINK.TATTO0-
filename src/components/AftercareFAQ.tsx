@@ -2,9 +2,11 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { FAQS } from '../data/mockData';
 import { Plus, Minus } from 'lucide-react';
+import { useLanguage } from '../context/LanguageContext';
 
 export const AftercareFAQ: React.FC = () => {
   const [openIdx, setOpenIdx] = useState<number | null>(0);
+  const { t } = useLanguage();
 
   const toggleFAQ = (idx: number) => {
     setOpenIdx(openIdx === idx ? null : idx);
@@ -23,13 +25,13 @@ export const AftercareFAQ: React.FC = () => {
           className="mb-12 sm:mb-16"
         >
           <span className="text-xs uppercase tracking-[0.3em] text-red-500 font-bold block mb-2">
-            Client Information
+            {t.faq.tag}
           </span>
           <h2 className="text-3xl sm:text-5xl md:text-7xl font-black tracking-[0.1em] uppercase font-sans text-white break-words">
             FAQ
           </h2>
           <p className="text-neutral-400 text-sm font-light mt-3">
-            Common questions regarding bookings, studio appointments, and tattoo process.
+            {t.faq.subtitle}
           </p>
         </motion.div>
 

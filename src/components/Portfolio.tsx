@@ -4,11 +4,13 @@ import { PORTFOLIO_ITEMS } from '../data/mockData';
 import { PortfolioItem } from '../types';
 import { X, Volume2, VolumeX, Maximize2 } from 'lucide-react';
 import { LazyVideo } from './LazyVideo';
+import { useLanguage } from '../context/LanguageContext';
 
 export const Portfolio: React.FC = () => {
   const [selectedItem, setSelectedItem] = useState<PortfolioItem | null>(null);
   const [modalMuted, setModalMuted] = useState(false);
   const modalVideoRef = useRef<HTMLVideoElement>(null);
+  const { t } = useLanguage();
 
   const toggleModalAudio = () => {
     if (modalVideoRef.current) {
@@ -31,14 +33,14 @@ export const Portfolio: React.FC = () => {
         >
           <div>
             <span className="text-xs uppercase tracking-[0.3em] text-red-500 font-bold block mb-2">
-              Original Tattoo Craft
+              {t.portfolio.tag}
             </span>
             <h2 className="text-3xl sm:text-5xl md:text-7xl font-black tracking-[0.1em] uppercase font-sans text-white break-words">
               PORT<span className="text-red-600">FOLIO</span>
             </h2>
           </div>
           <p className="text-neutral-400 text-xs sm:text-sm font-light tracking-wider uppercase max-w-md break-words">
-            Direct Original Works by David Pérez • Custom Concepts • Realism & Cover-Ups
+            {t.portfolio.subtitle}
           </p>
         </motion.div>
 
@@ -97,7 +99,7 @@ export const Portfolio: React.FC = () => {
             whileTap={{ scale: 0.96 }}
             className="inline-flex px-10 py-4 bg-red-600 hover:bg-red-500 text-white font-black text-xs tracking-[0.2em] uppercase rounded-full shadow-[0_0_30px_rgba(220,38,38,0.4)] transition-colors"
           >
-            Book Your Custom Tattoo
+            {t.portfolio.cta}
           </motion.a>
         </motion.div>
 

@@ -2,8 +2,11 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { ARTIST_INFO } from '../data/mockData';
 import { Instagram, Quote } from 'lucide-react';
+import { useLanguage } from '../context/LanguageContext';
 
 export const About: React.FC = () => {
+  const { t } = useLanguage();
+
   return (
     <section id="about" className="py-28 bg-[#040404] text-slate-100 relative overflow-hidden border-t border-neutral-900/60">
       {/* Ambient Red Aura */}
@@ -46,17 +49,17 @@ export const About: React.FC = () => {
             
             <div className="flex items-center gap-3 text-xs tracking-[0.3em] uppercase text-red-500 font-bold">
               <Quote className="w-4 h-4 rotate-180" />
-              <span>Artist Philosophy</span>
+              <span>{t.about.tag}</span>
             </div>
 
             {/* Primary Quote */}
             <blockquote className="space-y-4 sm:space-y-6">
               <p className="text-xl sm:text-3xl md:text-4xl lg:text-5xl font-black font-sans tracking-tight text-white leading-snug sm:leading-[1.15] break-words">
-                “Un encendedor también puede ser un pequeño lienzo. El arte y la tinta trascienden el tiempo.”
+                {t.about.quote1}
               </p>
               
               <p className="text-base sm:text-xl lg:text-2xl font-light text-neutral-300 italic leading-relaxed break-words">
-                “La piel no es solo un cuerpo, es una historia permanente donde cada sombra, cada línea y cada textura cobran vida eterna.”
+                {t.about.quote2}
               </p>
             </blockquote>
 
@@ -64,15 +67,15 @@ export const About: React.FC = () => {
             <div className="pt-6 border-t border-neutral-800/80 space-y-4 w-full">
               <div>
                 <h3 className="text-2xl sm:text-3xl md:text-4xl font-black uppercase tracking-wider text-slate-100 break-words">
-                  David Pérez
+                  {t.about.name}
                 </h3>
                 <p className="text-xs sm:text-sm uppercase tracking-[0.2em] sm:tracking-[0.25em] text-red-500 font-bold mt-1 break-words">
-                  Tatuador Colombiano • Haines City & Davenport, FL
+                  {t.about.title}
                 </p>
               </div>
 
               <p className="text-xs sm:text-sm text-neutral-400 font-light leading-relaxed max-w-xl break-words">
-                Especialista en tatuajes personalizados, realismo en escala de grises y transformación de piezas antiguas. Sesiones privadas individuales diseñadas exclusivamente a tu medida.
+                {t.about.bio}
               </p>
 
               <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4 pt-2 w-full sm:w-auto">
@@ -82,7 +85,7 @@ export const About: React.FC = () => {
                   whileTap={{ scale: 0.96 }}
                   className="px-8 py-3.5 bg-red-600 hover:bg-red-500 text-white font-black text-xs tracking-[0.2em] uppercase rounded-full shadow-[0_0_30px_rgba(220,38,38,0.4)] transition-colors text-center justify-center flex items-center"
                 >
-                  Book A Tattoo
+                  {t.about.bookBtn}
                 </motion.a>
                 <motion.a
                   href={ARTIST_INFO.instagramUrl}
