@@ -1,0 +1,6 @@
+{
+  "name": "DAVINK.TATTO0 — David | Tattoo Artist",
+  "description": "Premier custom, black & grey, and cover-up tattoos in Haines City / Davenport, Florida by David.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
