@@ -23,14 +23,17 @@ export const Hero: React.FC = () => {
       <div className="absolute inset-0 w-full h-full z-0 overflow-hidden bg-black">
         <video
           ref={videoRef}
+          src={ARTIST_INFO.heroVideoUrl}
           autoPlay
           muted
           loop
           playsInline
+          webkit-playsinline="true"
+          preload="auto"
           poster={ARTIST_INFO.heroPoster}
           className="w-full h-full object-cover brightness-120 contrast-105 saturate-110 scale-100"
+          style={{ willChange: 'transform' }}
         >
-          <source src={ARTIST_INFO.heroVideoUrl} type="video/mp4" />
           Your browser does not support the video tag.
         </video>
 

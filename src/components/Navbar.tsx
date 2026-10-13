@@ -41,25 +41,25 @@ export const Navbar: React.FC = () => {
           : 'bg-transparent border-b border-transparent py-5'
       }`}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-12 flex items-center justify-between w-full">
+      <div className="w-full flex items-center justify-between px-2 sm:px-4">
         {/* Logo & Brand */}
         <motion.a
           href="#home"
           whileHover={{ scale: 1.02 }}
-          className="flex items-center gap-2.5 sm:gap-3 group shrink-0"
+          className="flex items-center gap-2 group shrink-0"
         >
-          <div className="relative w-9 h-9 sm:w-10 sm:h-10 rounded-full overflow-hidden border-2 border-red-600/60 group-hover:border-red-500 transition-colors shrink-0">
+          <div className="relative w-8 h-8 sm:w-10 sm:h-10 rounded-full overflow-hidden border border-red-600/60 shrink-0">
             <img
               src={ARTIST_INFO.profileImage}
               alt={ARTIST_INFO.name}
-              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+              className="w-full h-full object-cover"
             />
           </div>
-          <div className="flex flex-col">
-            <span className="font-black tracking-[0.15em] sm:tracking-[0.2em] text-base sm:text-lg text-slate-100 font-sans">
+          <div className="flex flex-col leading-none">
+            <span className="font-black tracking-[0.1em] text-xs sm:text-base text-white font-sans">
               DAVINK<span className="text-red-600">.</span>TATTO0
             </span>
-            <span className="text-[9px] sm:text-[10px] tracking-[0.2em] sm:tracking-[0.25em] text-neutral-400 uppercase font-medium">
+            <span className="text-[8px] sm:text-[9px] tracking-[0.15em] text-neutral-400 uppercase font-medium">
               David • Central FL
             </span>
           </div>
@@ -80,7 +80,6 @@ export const Navbar: React.FC = () => {
 
         {/* Right Actions */}
         <div className="hidden md:flex items-center gap-3 sm:gap-4">
-          {/* Language Toggle Button */}
           <motion.button
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
